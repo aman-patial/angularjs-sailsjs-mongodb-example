@@ -1,0 +1,3 @@
+# sails-phonebook
+
+a [Sails](http://sailsjs.org) application
