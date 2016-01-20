@@ -1,13 +1,10 @@
 /**
- * Clean files and folders.
+ * Test Coverage of exisitng code.
+ * ---------------------------------------------------------------------
  *
- * ---------------------------------------------------------------
- *
- * This grunt task is configured to clean out the contents in the .tmp/public of your
+ * This grunt task is configured to test the coverage of exisitng code in
  * sails project.
  *
- * For usage docs see:
- * 		https://github.com/gruntjs/grunt-contrib-clean
  */
 module.exports = function(grunt) {
 

@@ -1,6 +1,6 @@
 ## Introduction
 
-Neev-HUB Server Side (Sails) unit testing is being done using Mocha framework
+Unit testing is done using Mocha framework along with code coverage using istanbul through grunt task
 
 ## Prerequisite Softwares 
 
@@ -8,10 +8,16 @@ Neev-HUB Server Side (Sails) unit testing is being done using Mocha framework
 
 ``` npm install ```
  
-## Start
+## Execute unit test  
 
-1. cd sails-hub/
+1. cd sails-phonebook/
 
 2. mocha test/unit/controllers		
 
 3. mocha test/unit/model	
+
+
+## Execute code coverage using grunt  
+
+  ``` grunt coverage ``` 
+ 
