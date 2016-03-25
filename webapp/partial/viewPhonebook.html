@@ -1,0 +1,34 @@
+<div class="container subpage-container" ng-controller="PhonebookController"  ng-init = "getAllPhoneebook()">
+   <h3 class="title-bottom">Phonebooks</h3>
+   <p><button type="button" data-toggle="modal" data-target="#adminModal" class="btn btn-primary">Add New Contact</button></p>
+   <table class="table table-hover" ng-show="phonebooks.length!=0">
+      <tr>
+         <th>First Name</th>
+         <th>Last Name</th>
+         <th>Phone Number</th>
+         <th>Actions</th>
+      </tr>
+      <tr data-ng-repeat="phone in phonebooks">
+         <td>
+            <p>{{phone.firstname}}</p>
+         </td>
+         <td>
+            <p>{{phone.lastname}}</p>
+         </td>
+         <td>
+            <p>{{phone.phonenumber}}</p>
+         </td>
+         <td>
+            <p>
+               <a data-ng-click="showconfirm(phone.id)" href="javascript:;"><i class="fa fa-trash-o phonebook-action-icons"></i></a>
+            </p>
+         </td>
+      </tr>
+   </table>
+   <div ng-show="phonebooks.length==0 || phonebooks =='null'|| phonebooks =='undefined'">
+      <h5 class="schedule-null-title">No phonebook(s) found.</h5>
+   </div>
+   <hr />
+</div>
+<div ng-include="'partial/createPhonebook.html'"></div>
+<div ng-include="'partial/delete.html'"></div>

@@ -1,0 +1,14 @@
+<div id="deleteModal" class="modal fade" role="dialog"  ng-controller="PhonebookController">
+   <div class="modal-dialog" ng-controller="PhonebookController">
+      <div class="modal-content delete-layout">
+         <div class="modal-body">
+            <div class="alert">
+               Are you sure want to delete the phone contact? 
+            </div>
+            <div class="modal-footer">
+               <button type="submit" class="btn btn-primary" data-ng-click="deletePhoneContact()" >Yes</button><button type="button" data-dismiss="modal" class="btn btn-default" data-ng-click="navigateTo('phonebook')" >No</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
