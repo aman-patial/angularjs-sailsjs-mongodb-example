@@ -9,6 +9,10 @@ module.exports = {
 
   attributes: {
 
+     id:{
+        type:"string", 
+        required:false
+      },
   	 firstname:{
         type:"string", 
         required:true,

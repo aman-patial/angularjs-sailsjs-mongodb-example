@@ -17,10 +17,10 @@ module.exports = {
     var lastname = req.param("lastname");
     var phonenumber = req.param("phonenumber");
      
-      // for debug purpose
-    console.log("First Name:"+ firstname);
-    console.log("Last Name:"+ lastname);
-    console.log("Phone Number:"+ phonenumber);
+    // for debug purpose
+    //console.log("First Name:"+ firstname);
+    //console.log("Last Name:"+ lastname);
+    //console.log("Phone Number:"+ phonenumber);
 
     Phonebook.create({firstname: firstname, lastname: lastname, phonenumber: phonenumber}, 
     function phoneBookCreated(err, phonebook){
@@ -29,15 +29,11 @@ module.exports = {
     		return;
   		}
     	else {
-           if (phonebook){   // phonebook implementation for response after insertion
-             console.log("phonebook response:"+ phonebook.firstname);
-             console.log("phonebook response:"+ phonebook.lastname);
-             console.log("phonebook response:"+ phonebook.phonenumber);
-             
+           if (phonebook){   
              return res.json({ "status": "OK",
                     "successMessage": {
                       "code": "200",
-                      "messageText": "Phonebook entry created succesfully!"
+                      "messageText": "Phone contact is created succesfully!"
                     }
                   }, 200);;
             }  
@@ -64,6 +60,27 @@ module.exports = {
       }
      
     });
+   },
+
+   delete: function (req, res, next) {
+   
+       var phno = req.param('phonenumber');
+       if(!phno) return res.badRequest('No phonenumber is provided.');
+
+       Phonebook.findOne({phonenumber: phno}).exec(function(err, result) {
+        //console.log(result);
+        if(err) return res.serverError(err);
+        if(!result) res.notFound(); 
+  
+       Phonebook.destroy({phonenumber: phno}).exec(function (err){
+          if (err) {
+            return res.negotiate(err);
+          }
+          sails.log('Deleted phonebook with mobile number ' + phno);
+          return res.ok();
+        });
+      });
+
    },
 
 };
